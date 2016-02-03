@@ -48,7 +48,7 @@ También necesitamos decirle a Heroku qué versión de Python queremos usar. Est
 
 ## `mysite/local_settings.py`
 
-Como es más restrictivo que PythonAnywhere, Heroku necesita usar una configuración diferente de la que usamos en nuestro local (en nuestro ordenador). Por ejemplo, Heroku quiere usar Postgres mientras que nosotros usamos SQLite. Por eso necesitamos crear un archivo de configuración separado que estará sólo disponible para nuestro entorno local.
+Como es más restrictivo que PythonAnywhere, Heroku necesita usar una configuración diferente de la que usamos localmente (en nuestro ordenador). Por ejemplo, Heroku quiere usar Postgres mientras que nosotros usamos SQLite. Por eso necesitamos crear un archivo de configuración separado que estará sólo disponible para nuestro entorno local.
 
 Continúa y crea el archivo `mysite/local_settings.py`. Debería contener la configuración para `DATABASE` de tu archivo `mysite/settings.py`. Así:
 
