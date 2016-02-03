@@ -36,7 +36,7 @@ Otro archivo que Heroku necesita es el Procfile. Éste le dice a Heroku qué com
 
     web: gunicorn mysite.wsgi
 
-Esta línea significa que vamos a desplegar una aplicación `web`, y que lo haremos ejcutando el comando `gunicorn mysite.wsgi` (`gunicorn` es como una versión más potente del comando `runserver` de Django).
+Esta línea significa que vamos a desplegar una aplicación `web`, y que lo haremos ejecutando el comando `gunicorn mysite.wsgi` (`gunicorn` es como una versión más potente del comando `runserver` de Django).
 
 Ahora guárdalo. ¡Hecho!
 
@@ -70,7 +70,7 @@ Ahora ¡sólo guárdalo! :)
 
 ## mysite/settings.py
 
-Otra cosa que necesitamos hacer is modificar el archivo `settings.py` de nuestro sitio web. Abre `mysite/settings.py` en tu editor y añade las siguientes líneas al final del archivo:
+Otra cosa que necesitamos hacer es modificar el archivo `settings.py` de nuestro sitio web. Abre `mysite/settings.py` en tu editor y añade las siguientes líneas al final del archivo:
 
 ```python
 import dj_database_url
@@ -115,7 +115,7 @@ Necesitas instalar la herramienta Heroku *toolbelt* que puedes encontrar aquí (
 
 Crea también, por favor, una cuenta gratuita de Heroku aquí: https://id.heroku.com/signup/www-home-top
 
-Luego autentica tu cuenta de Heroku en tu ordenaodr ejecutando el siguiente comando:
+Luego autentica tu cuenta de Heroku en tu ordenador ejecutando el siguiente comando:
 
     $ heroku login
 
@@ -181,7 +181,7 @@ Para hacerlo, ejecuta el siguiente comando:
 
     $ heroku ps:scale web=1
 
-Este comando le dice a Heroku que ejecute sólamente una instancia de nuestro proceso `web`. Ya que nuestra aplicación de blog es bastante simple, no necesitamos demasiada potencia y por tanto está bien ejecutar sólamente un proceso. Es posible pedirle a Heroku que ejecute más procesos (por cierto, Heroku le llama a estos procesos "Dynos" así que no te sorprendas si ves ese nombre) pero entonces dejaría de ser gratuito.
+Este comando le dice a Heroku que ejecute solamente una instancia de nuestro proceso `web`. Ya que nuestra aplicación de blog es bastante simple, no necesitamos demasiada potencia y por tanto está bien ejecutar solamente un proceso. Es posible pedirle a Heroku que ejecute más procesos (por cierto, Heroku le llama a estos procesos "Dynos" así que no te sorprendas si ves ese nombre) pero entonces dejaría de ser gratuito.
 
 Ahora podemos visitar la aplicación en nuestro navegador con `heroku open`.
 
@@ -189,7 +189,7 @@ Ahora podemos visitar la aplicación en nuestro navegador con `heroku open`.
 
 > __Nota__: ¡Verás una pagina de error! Hablaremos de eso en un minuto.
 
-Esto abrirá una url como [https://djangogirlsblog.herokuapp.com/]() en tu navegador, y al momento verás probablmente una página de error.
+Esto abrirá una url como [https://djangogirlsblog.herokuapp.com/]() en tu navegador, y al momento verás probablemente una página de error.
 
 El error que ves es porque cuando desplegamos en Heroku creamos una nueva base de datos que está vacía. Necesitamos ejecutar los comandos `migrate` y `createsuperuser`, tal como hicimos en PythonAnywhere. Esta vez, se ejecutan vía una línea de comandos especial en nuestro ordenador, `heroku run`:
 
@@ -197,7 +197,7 @@ El error que ves es porque cuando desplegamos en Heroku creamos una nueva base d
 
     $ heroku run python manage.py createsuperuser
 
-Este comando te pedirá que eligas un nombre de usuario y password otra vez. Éstas serán tus credenciales en la página de administración de tu sitio web.
+Este comando te pedirá que elijas un nombre de usuario y password otra vez. Éstas serán tus credenciales en la página de administración de tu sitio web.
 
 
 Refresca tu navegador, y ¡ahí está! Ahora ya sabes como desplegar en dos plataformas de hosting diferentes. Elige tu favorita :)
