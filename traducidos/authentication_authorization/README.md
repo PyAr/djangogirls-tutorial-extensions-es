@@ -1,10 +1,10 @@
-# Tarea: Añadiendo seguridad a tu sitio web
+# Deberes: Añadiendo seguridad a tu sitio web
 
 Te habrás dado cuenta de que no has tenido que usar ninguna clave, excepto cuando, con anterioridad, usamos la interfaz de administración. Te habrás dado cuenta también de que esto significa que cualquiera puede añadir o editar entradas (posts) en tu blog. Yo no se tú, pero yo no querría que cualquiera publicase en mi blog. Así que hagamos algo al respecto.
 
 ## Autorización para añadir/editar entradas en el blog
 
-Primero hagamos las cosas seguras. Protegeremos nuestras vistas `post_new`, `post_edit`, `post_draft_list`, `post_remove` y `post_publish` para que solamente usuarios registrados puedan acceder a ellas. Django viene con algunas herramientas para ello, son elementos bastante avanzados llamados _decoradores_ (decorators) . No te preocupes por tecnicismos ahora, puedes leer más sobre este tema después. El decorador que debemos usar viene en el módulo `django.contrib.auth.decorators` y se llama `login_required`.
+Primero hagamos las cosas seguras. Protegeremos nuestras vistas `post_new`, `post_edit`, `post_draft_list`, `post_remove` y `post_publish` para que solamente usuarios registrados puedan acceder a ellas. Django viene con algunas herramientas para ello, son elementos bastante avanzados llamados _decoradores_ (_decorators_) . No te preocupes por tecnicismos ahora, puedes leer más sobre este tema después. El decorador que debemos usar se encuentra en el módulo `django.contrib.auth.decorators` y se llama `login_required`.
 
 Así que edita el archivo `blog/views.py` y añade estas líneas al principio junto al resto de los _imports_:
 
@@ -57,7 +57,7 @@ Ahora necesitamos una plantilla para la página de autenticación o inicio de se
 {% block content %}
 
 {% if form.errors %}
-<p>Usuario o clave correctos. Vuelve a intentarlo, por favor.</p>
+<p>Usuario o clave incorrectos. Vuelve a intentarlo, por favor.</p>
 {% endif %}
 
 <form method="post" action="{% url 'django.contrib.auth.views.login' %}">
@@ -92,7 +92,7 @@ Ahora cuando se accede directamente a la página de inicio de sesión, si el usu
 
 ## Mejorando el diseño
 
-Así que ahora nos hemos asegurado de que solo usuarios autorizados (ie. nosotros) pueden añadir, editar o publicar entradas en el blog. Pero los botones de añadir y editar entradas pueden ser vistos todavía por todo el mundo, escondámoslos para los usuarios no autenticados. Para esto necesitamos editar las plantillas, así que empecemos con la plantilla base `blog/templates/blog/base.html`:
+Así que ahora nos hemos asegurado de que solo los usuarios autorizados (ie. nosotros) pueden añadir, editar o publicar entradas en el blog. Pero los botones de añadir y editar entradas pueden ser vistos todavía por todo el mundo, escondámoslos para los usuarios que no estén autenticados. Para esto necesitamos editar las plantillas, así que empecemos con la plantilla base `blog/templates/blog/base.html`:
 
 ```django
 <body>
@@ -116,13 +116,13 @@ Así que ahora nos hemos asegurado de que solo usuarios autorizados (ie. nosotro
 </body>
 ```
 
-Tal vez reconozcas el patrón aquí. Hay una condición if dentro de la plantilla que comprueba que el usuario está autenticado para mostrar los botones de editar. De lo contrario muestra el botón de inicio de sesión (login).
+Tal vez reconozcas el patrón aquí. Hay una condición _if_ dentro de la plantilla que comprueba que el usuario esté autenticado para mostrar los botones de editar. De lo contrario muestra el botón de inicio de sesión (login).
 
 *Deberes*: Edita la plantilla `blog/templates/blog/post_detail.html` para mostrar solamente los botones de editar a los usuarios autenticados.
 
 ## Más sobre usuarios autenticados
 
-Añadamos un poco de sal y pimienta a nuestras plantillas mientras estemos en ellas. Primero añadiremos un indicador de que estamos autenticados. Edita `blog/templates/blog/base.html` de la siguiente manera:
+Añadamos un poco de salsa a nuestras plantillas mientras estemos en ellas. Primero añadiremos un indicador de que estamos autenticados. Edita `blog/templates/blog/base.html` de la siguiente manera:
 
 ```django
 <div class="page-header">
@@ -141,7 +141,7 @@ Esto añade un bonito "Hola &lt;nombre-de-usuario&gt;" para recordarnos quien so
 
 Hemos decidido dejar que Django gestione el inicio de sesión, veamos si Django puede gestionar también el cierre de sesión por nosotros. Echa un vistazo en https://docs.djangoproject.com/en/1.8/topics/auth/default/ a ver si puedes encontrar algo.
 
-¿Terminaste de leer? Deberías estar pensando en añadir una url (en `mysite/urls.py`) apuntando a la vista `django.contrib.auth.views.logout`. Como esta:
+¿Terminaste de leer? Deberías estar pensando en añadir una url (en `mysite/urls.py`) apuntando a la vista `django.contrib.auth.views.logout`. Así:
 
 ```python
 from django.conf.urls import patterns, include, url
