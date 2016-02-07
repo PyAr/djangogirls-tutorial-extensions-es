@@ -92,7 +92,7 @@ Ahora cuando se accede directamente a la página de inicio de sesión, si el usu
 
 ## Mejorando el diseño
 
-Así que ahora nos hemos asegurado de que solo los usuarios autorizados (ie. nosotros) pueden añadir, editar o publicar entradas en el blog. Pero los botones de añadir y editar entradas pueden ser vistos todavía por todo el mundo, escondámoslos para los usuarios que no estén autenticados. Para esto necesitamos editar las plantillas, así que empecemos con la plantilla base `blog/templates/blog/base.html`:
+Así que ahora nos hemos asegurado de que solo los usuarios autorizados (es decir, nosotros) pueden añadir, editar o publicar entradas en el blog. Pero los botones de añadir y editar entradas pueden ser vistos todavía por todo el mundo, escondámoslos para los usuarios que no estén autenticados. Para esto necesitamos editar las plantillas, así que empecemos con la plantilla base `blog/templates/blog/base.html`:
 
 ```django
 <body>
@@ -137,7 +137,7 @@ Añadamos un poco de salsa a nuestras plantillas mientras estemos en ellas. Prim
 </div>
 ```
 
-Esto añade un bonito "Hola &lt;nombre-de-usuario&gt;" para recordarnos quien somos y que estamos autenticados. También añade un link para cerrar la sesión. Pero como te habrás dado cuenta, esto todavía no funciona. ¡Ups! ¡Hemos roto internet! ¡Arreglémosla!
+Esto añade un bonito "Hola <nombre-de-usuario>" para recordarnos quien somos y que estamos autenticados. También añade un link para cerrar la sesión. Pero como te habrás dado cuenta, esto todavía no funciona. ¡Ups! ¡Hemos roto internet! ¡Arreglémosla!
 
 Hemos decidido dejar que Django gestione el inicio de sesión, veamos si Django puede gestionar también el cierre de sesión por nosotros. Echa un vistazo en https://docs.djangoproject.com/en/1.8/topics/auth/default/ a ver si puedes encontrar algo.
 
