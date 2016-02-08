@@ -1,6 +1,6 @@
 # Instalación de PostgreSQL
 
-> Parte de este capítulo esta basado en los tutoriales de Geek Girls Carrots (http://django.carrots.pl/).
+> Parte de este capítulo está basado en los tutoriales de Geek Girls Carrots (http://django.carrots.pl/).
 
 > Parte de este capítulo esta basado en [django-marcador
 tutorial](http://django-marcador.keimlink.de/) licenciado bajo Creative Commons
@@ -9,9 +9,9 @@ Attribution-ShareAlike 4.0 International License. El tutorial django-marcador ti
 
 ## Windows
 
-La forma mas fácil de instalar Postgres en Windows es usando un programa que puedes encontrar aquí http://www.enterprisedb.com/products-services-training/pgdownload#windows
+La forma mas fácil de instalar PostgreSQL en Windows es usando un programa que puedes encontrar aquí http://www.enterprisedb.com/products-services-training/pgdownload#windows
 
-Elige la versión mas nueva disponible para tu sistema operativo. Descarga el instalador, ejecuta lo y sigue las instrucciones disponibles aquí: http://www.postgresqltutorial.com/install-postgresql/. Toma nota del directorio de instalación ya que lo necesitarás en el siguiente paso (usualmente es `C:\Program Files\PostgreSQL\9.3`).
+Elige la versión mas nueva disponible para tu sistema operativo. Descarga el instalador, ejecútalo y sigue las instrucciones disponibles aquí: http://www.postgresqltutorial.com/install-postgresql/. Toma nota del directorio de instalación ya que lo necesitarás en el siguiente paso (usualmente es `C:\Program Files\PostgreSQL\9.3`).
 
 ## Mac OS X
 
@@ -19,11 +19,11 @@ La forma mas fácil es descargar [Postgres.app](http://postgresapp.com/) e insta
 
 Descárgala, arrástrala al directorio Aplicaciones y ejecútala con doble click. ¡Eso es todo!
 
-También vas a tener que agregar las herramientas de linea de comandos de Postgres a tu variable `PATH`, lo que se explica [aquí](http://postgresapp.com/documentation/cli-tools.html).
+También vas a tener que agregar las herramientas de línea de comandos de Postgres a tu variable `PATH`, que se explica [aquí](http://postgresapp.com/documentation/cli-tools.html).
 
 ## Linux
 
-Los pasos de instalación varían de acuerdo a tu distribución. Abajo están los comandos para Ubuntu y Fedora, pero si estas usando una distribución diferente [Revisa la documentación de PostgreSQL](https://wiki.postgresql.org/wiki/Detailed_installation_guides#General_Linux).
+Los pasos de instalación varían de acuerdo a tu distribución. Abajo están los comandos para Ubuntu y Fedora, pero si estas usando una distribución diferente [revisa la documentación de PostgreSQL](https://wiki.postgresql.org/wiki/Detailed_installation_guides#General_Linux).
 
 ### Ubuntu
 
@@ -43,11 +43,10 @@ A continuación, necesitamos crear nuestra primera base de datos y un usuario qu
 
 ## Windows
 
-If you're using Windows, there's a couple more steps we need to complete. For now it's not important for you to understand the configuration we're doing here, but feel free to ask your coach if you're curious as to what's going on.
-Si estas usando Windows, hay un par de pasos más que necesitas completar. Por ahora esto no es importante para que entiendas la configuración que estamos haciendo aquí. pero sientete libre de preguntar a tu guia si tienes curiosidad por saber que esta pasando.
+Si estás usando Windows, hay algunos pasos más que necesitamos completar. Por ahora no es importante que entiendas la configuración que estamos haciendo aquí, pero siéntete libre de preguntarle al Guía si tienes curiosidad por saber qué está sucediendo.
 
 1. Abre el Símbolo del Sistema (Menú inicio → Todos los programas → Accesorios → Simbolo del Sistema)
-2. Ejecuta los siguiente escribiendo y presionando la tecla `Enter`: `setx PATH "%PATH%;C:\Program Files\PostgreSQL\9.3\bin"`. Puedes pegar esto en el Simbolo del Sistema haciendo click derecho y seleccionando `Pegar`. Asegúrate de que la dirección del directorio es igual a la que tomaste nota durante la instalación más el añadido `\bin` al final. Deberías ver el mensaje `EXITO: El valor específico fue guardado`.
+2. Ejecuta los siguiente escribiéndolo y presionando la tecla `Enter`: `setx PATH "%PATH%;C:\Program Files\PostgreSQL\9.3\bin"`. Puedes pegar esto en el Simbolo del Sistema haciendo click derecho y seleccionando `Pegar`. Asegúrate de que la dirección del directorio es igual a la que tomaste nota durante la instalación más el agregado de `\bin` al final. Deberías ver un mensaje similar a `ÉXITO: El valor específico fue guardado`.
 3. Cierra y vuelve a abrir el Simbolo de Sistema.
 
 ## Crear la base de datos
@@ -60,7 +59,7 @@ Primero, vamos a lanzar la consola de Postgres ejecutando `psql`. ¿Recuerdas co
     Type "help" for help.
     #
 
-Nuestro `$` ahora cambió a `#` lo cual significa que ahora estamos enviando comandos a PostgreSQL. Vamos a crear un usuario:
+Nuestro `$` ahora cambió a `#`, lo cual significa que ahora estamos enviando comandos a PostgreSQL. Vamos a crear un usuario:
 
     # CREATE USER name;
     CREATE ROLE
@@ -76,7 +75,7 @@ Recuerda reemplazar `name` con el nombre que elegiste (ejemplo: `bozena_maria`).
 
 Genial - ¡El tema bases de datos ya está listo!
 
-# Actualizando la configuración de django
+# Actualizar la configuración de django
 
 Encuentra esta parte en tu archivo `mysite/settings.py`:
 
@@ -106,11 +105,11 @@ DATABASES = {
 
 Recuerda cambiar `name` por el nombre de usuario que creaste anteriormente en este capítulo.
 
-# Instalando el paquete de PostgreSQL para Python
+# Instalar el paquete de PostgreSQL para Python
 
 Primero, instala Heroku Toolbelt desde https://toolbelt.heroku.com/. Vamos a necesitarlo para desplegar tu sitio mas adelante, esto incluye Git, lo que podría ser útil ahora.
 
-Luego, necesitamos instalar un paquete el cual permite a Python hablar con PostgreSQL - este se llama `psycopg2`. Las instrucciones de instalación difieren levemente entre Windows y Linux/OS X.
+Luego, necesitamos instalar un paquete que le permite a Python hablar con PostgreSQL - este se llama `psycopg2`. Las instrucciones de instalación difieren levemente entre Windows y Linux/OS X.
 
 ## Windows
 
