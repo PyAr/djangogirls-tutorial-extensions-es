@@ -9,9 +9,9 @@ Attribution-ShareAlike 4.0 International License. El tutorial django-marcador ti
 
 ## Windows
 
-La forma mas fácil de instalar Postgres en Windows es usando un programa que puedes encontrar aqui http://www.enterprisedb.com/products-services-training/pgdownload#windows
+La forma mas fácil de instalar Postgres en Windows es usando un programa que puedes encontrar aquí http://www.enterprisedb.com/products-services-training/pgdownload#windows
 
-Elige la versión mas nueva disponible para tu sistema operativo. Descarga el instalador, ejecutalo y sigue las instrucciones disponibles aqui: http://www.postgresqltutorial.com/install-postgresql/. Toma nota del directorio de instalación ya que lo necesitarás en el siguiente paso (usualmente es `C:\Program Files\PostgreSQL\9.3`).
+Elige la versión mas nueva disponible para tu sistema operativo. Descarga el instalador, ejecuta lo y sigue las instrucciones disponibles aquí: http://www.postgresqltutorial.com/install-postgresql/. Toma nota del directorio de instalación ya que lo necesitarás en el siguiente paso (usualmente es `C:\Program Files\PostgreSQL\9.3`).
 
 ## Mac OS X
 
@@ -23,7 +23,7 @@ También vas a tener que agregar las herramientas de linea de comandos de Postgr
 
 ## Linux
 
-Los pasos de instalación varian deacuerdo a tu distribución. Abajo estan los comandos para Ubuntu y Fedora, pero si estas usando una distribución diferente [Revisa la documentación de PostgreSQL](https://wiki.postgresql.org/wiki/Detailed_installation_guides#General_Linux).
+Los pasos de instalación varían de acuerdo a tu distribución. Abajo están los comandos para Ubuntu y Fedora, pero si estas usando una distribución diferente [Revisa la documentación de PostgreSQL](https://wiki.postgresql.org/wiki/Detailed_installation_guides#General_Linux).
 
 ### Ubuntu
 
@@ -53,7 +53,7 @@ Si estas usando Windows, hay un par de pasos más que necesitas completar. Por a
 ## Crear la base de datos
 
 Primero, vamos a lanzar la consola de Postgres ejecutando `psql`. ¿Recuerdas como lanzar la consola?
-> En Mac OS X puedes hacer esto lanzando la aplicación `Terminal` (está en Aplicaciones → Utilidades). En Linux, está probablemente en Aplicaciones → Accesorios → Terminal. En Windows necesitas ir a Menú inicio → Todos los programas → Accesorios → Simbolo del Sistema. Además, en Windows, `psql` podría requerir iniciar sesión usando el usuario y contraseña que elegiste durante la instalación. Si `psql` pregunta por tu contraseña y parece no funcionar, prueba `psql -U <usuario> -W` presiona enter e ingresa tu contraseña.
+> En Mac OS X puedes hacer esto lanzando la aplicación `Terminal` (está en Aplicaciones → Utilidades). En Linux, está probablemente en Aplicaciones → Accesorios → Terminal. En Windows necesitas ir a Menú inicio → Todos los programas → Accesorios → Simbolo del Sistema. Además, en Windows, `psql` podría requerir iniciar sesión usando el usuario y contraseña que elegiste durante la instalación. Si `psql` pregunta por tu contraseña y parece no funcionar, prueba `psql -U <usuario> -W` presiona Enter e ingresa tu contraseña.
 
     $ psql
     psql (9.3.4)
@@ -108,7 +108,7 @@ Recuerda cambiar `name` por el nombre de usuario que creaste anteriormente en es
 
 # Instalando el paquete de PostgreSQL para Python
 
-Primero, instala Heroku Toolbelt from https://toolbelt.heroku.com/ vamos a necesitar esto para desplegar tu sitio mas adelante, esto incluye Git, lo que podría ser útil ahora.
+Primero, instala Heroku Toolbelt desde https://toolbelt.heroku.com/. Vamos a necesitarlo para desplegar tu sitio mas adelante, esto incluye Git, lo que podría ser útil ahora.
 
 Luego, necesitamos instalar un paquete el cual permite a Python hablar con PostgreSQL - este se llama `psycopg2`. Las instrucciones de instalación difieren levemente entre Windows y Linux/OS X.
 
@@ -116,11 +116,11 @@ Luego, necesitamos instalar un paquete el cual permite a Python hablar con Postg
 
 Para Windows, descarga el archivo pre-construido desde http://www.stickpeople.com/projects/python/win-psycopg/
 
-Asegurate de obtener el archivo correspondiente a tu versión de Python (3.4 debería ser la última linea) y la correcta arquitectura (32 bits en la columna izquierda o 64 bits en la columna derecha).
+Asegúrate de obtener el archivo correspondiente a tu versión de Python (3.4 debería ser la última linea) y la correcta arquitectura (32 bits en la columna izquierda o 64 bits en la columna derecha).
 
-Renombra el archivo descargado y muevelo de modo que este disponible en `C:\psycopg2.exe`.
+Renombra el archivo descargado y muévelo de modo que este disponible en `C:\psycopg2.exe`.
 
-Una vez que este hecho, ingresa el siguiente comando en la terminal (asegurate que tu `entorno virtual` este activado):
+Una vez que este hecho, ingresa el siguiente comando en la terminal (asegúrate que tu `entorno virtual` este activado):
 
     easy_install C:\psycopg2.exe
 
