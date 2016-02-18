@@ -25,7 +25,7 @@ Añadamos un link en `blog/templates/blog/base.html` cerca del botón para añad
 <a href="{% url 'post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
 ```
 
-Y ahora: ¡urls! En `blog/urls.py` añadimos:
+¡Y ahora urls! En `blog/urls.py` añadimos:
 
 ```python
 url(r'^drafts/$', views.post_draft_list, name='post_draft_list'),
@@ -85,7 +85,7 @@ por éstas:
 {% endif %}
 ```
 
-Cómo te habrás dado cuenta, hemos añadido la línea `{% else %}` aquí. Lo que significa que si la condición `{% if post.published_date %}` no se cumple (es decir, no hay fecha de publicación), entonces queremos ejecutar la línea `<a class="btn btn-default" href="{% url 'post_publish' pk=post.pk %}">Publicar</a>`. Fíjate que estamos pasando una variable `pk` en `{% url %}`.
+Cómo te habrás dado cuenta, hemos añadido la línea `{% else %}`. Lo que significa que si la condición `{% if post.published_date %}` no se cumple (es decir, no hay fecha de publicación), entonces queremos ejecutar la línea `<a class="btn btn-default" href="{% url 'post_publish' pk=post.pk %}">Publicar</a>`. Fíjate que estamos pasando una variable `pk` en `{% url %}`.
 
 Es hora de crear una URL (en `blog/urls.py`):
 
@@ -102,7 +102,7 @@ def post_publish(request, pk):
     return redirect('blog.views.post_detail', pk=pk)
 ```
 
-Recuerda, cuando creamos un modelo `Post` escribimos un método `publish`, que era algo así:
+Recuerda, cuando creamos el modelo `Post` escribimos un método `publish`, que era algo así:
 
 ```python
 def publish(self):
@@ -112,7 +112,7 @@ def publish(self):
 
 ¡Ahora podemos usarlo al fin!
 
-¡Y una vez más después de publicar la entrada se nos redirige inmediatamente a la página `post_detail`!  
+¡Y una vez más, después de publicar la entrada se nos redirige inmediatamente a la página `post_detail`!  
 
 ![Publish button](images/publish2.png)
 
@@ -134,7 +134,7 @@ Ahora necesitamos una URL (`blog/urls.py`):
 url(r'^post/(?P<pk>[0-9]+)/remove/$', views.post_remove, name='post_remove'),
 ```
 
-Ahora, ¡es el momento de una vista! Abramos `blog/views.py` y añadamos este código:
+Y ahora, ¡es el momento de una vista! Abramos `blog/views.py` y añadamos este código:
 
 ```python
 def post_remove(request, pk):
@@ -145,7 +145,7 @@ def post_remove(request, pk):
 
 El único cambio es, de hecho, borrar una entrada del blog. Cada modelo Django puede ser borrado con `.delete()`. ¡Es tan simple como eso!
 
-Y esta vez, después de borrar una entrada queremos ir a la página con la lista de entradas, así que usamos `redirect`.
+Y esta vez, después de borrar una entrada, queremos ir a la página con la lista de entradas, así que usamos `redirect`.
 
 ¡Probémoslo! Ve a la página de una entrada e ¡intenta borrarla!
 
