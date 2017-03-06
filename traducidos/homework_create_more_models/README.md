@@ -1,8 +1,8 @@
-# Homework: create comment model
+# Deberes: crear el modelo Comment
 
-Now we only have Post model, what about receiving some feedback from your readers?
+Hasta aquí solo tenemos un modelo Post, pero qué hay de recibir algunos comentarios de tus lectores?
 
-## Creating comment blog model
+## Creando el modelo de comentarios del blog
 
 Let's open `blog/models.py` and append this piece of code to the end of file:
 
