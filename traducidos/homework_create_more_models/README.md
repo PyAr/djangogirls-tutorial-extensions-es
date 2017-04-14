@@ -1,6 +1,6 @@
 # Deberes: crear el modelo Comment
 
-Hasta aquí solo tenemos un modelo Post, pero qué hay de recibir algunos comentarios de tus lectores?
+Hasta aquí solo tenemos un modelo Post, pero ¿qué hay de recibir algunos comentarios de tus lectores?
 
 ## Creando el modelo de comentarios del blog
 
@@ -29,17 +29,16 @@ En este capítulo tenemos un nuevo tipo de campo:
 
 Además la opción `related_name` en `models.ForeignKey` nos permite tener acceso a los comentarios desde el modelo post.
 
-## Create tables for models in your database
+## Crear tablas para los modelos en tu base de datos
 
-Ahora es momento de agregar el modelo de comentarios a la base de datos. Para esto tenemos que hacerle conocer a Django que hicimos cambios en nuestro modelo..
-Tipee `python manage.py makemigrations blog`. De este modo: 
+Ahora es momento de agregar el modelo de comentarios a la base de datos. Para esto tenemos que hacerle conocer a Django que hicimos cambios en nuestro modelo. Escribe `python manage.py makemigrations blog`. De esta forma:
 
     (myvenv) ~/djangogirls$ python manage.py makemigrations blog
     Migrations for 'blog':
       0002_comment.py:
         - Create model Comment
 
-Puedes ver que este comando crea por nosotros otro archivo de migración en el directorio `blog/migrations/`. Ahora necesitamos aplicar estos cambios con `python manage.py migrate blog`. Debería verse como esto:
+Puedes ver que este comando crea por nosotros otro archivo de migración en el directorio `blog/migrations/`. Ahora necesitamos aplicar estos cambios con `python manage.py migrate blog`. Debería verse así:
 
     (myvenv) ~/djangogirls$ python manage.py migrate blog
     Operations to perform:
@@ -48,7 +47,7 @@ Puedes ver que este comando crea por nosotros otro archivo de migración en el d
       Rendering model states... DONE
       Applying blog.0002_comment... OK
 
-Nuestro modelo Comment ahora existe en la base de datos. Sería lindo si tenemos acceso a ella en nuestro panel de administración.
+Nuestro modelo Comment ahora existe en la base de datos. Sería lindo si tenemos acceso a él en nuestro panel de administración.
 
 ## Registrar el modelo comment en el panel de administración
 
@@ -67,8 +66,6 @@ from .models import Post, Comment
 admin.site.register(Post)
 admin.site.register(Comment)
 ```
-
-If you type `python manage.py runserver` in command prompt and go to [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/) in your browser, you should have access to list, add and remove comments. Don't hesitate to play with it!
 
 Si escribes `python manage.py runserver` en el símbolo de sistema y vas con el navegador a [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/) deberías tener acceso a listar, agregar y eliminar comentarios. No dudes en jugar con esto.
 
@@ -99,7 +96,7 @@ Pero esto puede verse algo mejor, agrega algo de css a `static/css/blog.css`:
 }
 ```
 
-Podemos también permitir a los visitantes conocer sobre los comentarios en la página de listado de publicaciones. Vea al archivo `blog/templates/blog/post_list.html` y agrega la línea: 
+Podemos también permitir a los visitantes conocer sobre los comentarios en la página de listado de publicaciones. Vea al archivo `blog/templates/blog/post_list.html` y agrega la línea:
 
 ```django
 <a href="{% url 'blog.views.post_detail' pk=post.pk %}">Comments: {{ post.comments.count }}</a>
@@ -124,9 +121,9 @@ Luego de esto nuestra plantilla debería verse así:
 {% endblock content %}
 ```
 
-## Deje que sus lectores escriban comentarios
+## Deja que tus lectores escriban comentarios
 
-Ahora mismo podemos ver comentarios en nuestro blog pero no podemos agregarlos, vamos a cambiar esto!
+Ahora mismo podemos ver comentarios en nuestro blog pero no podemos agregarlos, ¡vamos a cambiar esto!
 
 Ve a `blog/forms.py` y agrega estas líneas al final del archivo:
 
@@ -138,13 +135,13 @@ class CommentForm(forms.ModelForm):
         fields = ('author', 'text',)
 ```
 
-No olvides de importar el modelo Comment, cambia la línea:
+No olvides importar el modelo Comment, cambia la línea:
 
 ```python
 from .models import Post
 ```
 
-en:
+por:
 
 ```python
 from .models import Post, Comment
@@ -170,7 +167,7 @@ Ahora deberías ver este error:
 
 ![AttributeError](images/views_error.png)
 
-Para arreglarlo, agrega este fragmento de código a `blog/views.py`: 
+Para arreglarlo, agrega este fragmento de código a `blog/views.py`:
 
 ```python
 def add_comment_to_post(request, pk):
@@ -187,7 +184,7 @@ def add_comment_to_post(request, pk):
     return render(request, 'blog/add_comment_to_post.html', {'form': form})
 ```
 
-No olvides sobre los imports al comienzo del archivo:
+No olvides los imports al comienzo del archivo:
 
 ```python
 from .forms import PostForm, CommentForm
@@ -217,9 +214,9 @@ Tal como menciona el error, la plantilla no existe, crea una como `blog/template
 {% endblock %}
 ```
 
-Sí! Ahora tus lectores pueden hacerte saber qué es lo que piensan de tus publicaciones!
+¡Sí! ¡Ahora tus lectores pueden hacerte saber qué es lo que piensan de tus publicaciones!
 
-## Moderando sus comentarios
+## Moderar tus comentarios
 
 No todos los comentarios deberían ser mostrados. El dueño del blog debería tener la opción de aprobar o eliminar comentarios. Vamos a hacer algo sobre esto.
 
@@ -287,7 +284,7 @@ def comment_remove(request, pk):
 
 Y por supuesto arregla los imports.
 
-Todo funciona, pero hay un error. En nuestra página de listado de publicaciones bajo la publicación podemos ver el número de todos los comentarios agregados, pero ahí queremos tener el número de comentarios aprobados. 
+Todo funciona, pero hay un error. En nuestra página de listado de publicaciones bajo la publicación podemos ver el número de todos los comentarios agregados, pero ahí queremos tener el número de comentarios aprobados.
 
 Ve a `blog/templates/blog/post_list.html` y modifica la línea:
 
@@ -295,7 +292,7 @@ Ve a `blog/templates/blog/post_list.html` y modifica la línea:
 <a href="{% url 'blog.views.post_detail' pk=post.pk %}">Comments: {{ post.comments.count }}</a>
 ```
 
-a:
+por:
 
 ```django
 <a href="{% url 'blog.views.post_detail' pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a>
@@ -309,4 +306,3 @@ def approved_comments(self):
 ```
 
 Ahora la funcionalidad sobre comentarios está finalizada! Felicitaciones :-)
-
