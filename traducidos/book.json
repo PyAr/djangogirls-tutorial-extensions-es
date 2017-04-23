@@ -1,10 +1,5 @@
 {
   "gitbook": ">=3.2.0",
-  "links": {
-    "sidebar": {
-      "Need help? Talk to us!": "https://github.com/PyAr/djangogirls-tutorial-extensions-es"
-    }
-  },
   "pdf": {
     "fontSize": 14
   },
