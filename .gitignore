@@ -62,3 +62,6 @@ target/
 .ipynb_checkpoints
 
 *~
+
+traducidos/_book/
+traducidos/node_modules/
