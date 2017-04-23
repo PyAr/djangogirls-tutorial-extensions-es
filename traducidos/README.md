@@ -10,10 +10,10 @@ http://creativecommons.org/licenses/by-sa/4.0/
 Este libro contiene tutoriales adicionales que pueder hacer luego de haber terminado el [Tutorial de Django Girls](http://tutorial.djangogirls.org/es/).
 
 Estos son los tutoriales actuales:
-- [Deberes: ¡agrega más a tu sitio web!](https://github.com/PyAr/tutorial-extensions-es/blob/master/traducidos/homework/README.md)
-- [Deberes: asegurar tu sitio web](https://github.com/PyAr/tutorial-extensions-es/blob/master/traducidos/authentication_authorization/README.md)
-- [Deberes: crear el model comentario](https://github.com/PyAr/tutorial-extensions-es/blob/master/traducidos/homework_create_more_models/README.md)
-- [Opcional: installación de PostgreSQL](https://github.com/PyAr/djangogirls-tutorial-extensions-es/blob/master/traducidos/optional_postgresql_installation/README.md)
+- [Deberes: ¡agrega más a tu sitio web!](homework/README.md)
+- [Deberes: asegurar tu sitio web](authentication_authorization/README.md)
+- [Deberes: crear el model comentario](homework_create_more_models/README.md)
+- [Opcional: installación de PostgreSQL](optional_postgresql_installation/README.md)
 
 ## Colaborar
 
